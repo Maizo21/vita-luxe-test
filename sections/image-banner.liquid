@@ -132,9 +132,8 @@
             </div>
           {%- when 'buttons' -%}
             <div
-              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
-              {{ block.shopify_attributes }}
-            >
+              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %} {% if block.settings.button_position_absolute %} banner__buttons--absolute{% endif %}"
+              {{ block.shopify_attributes }}>
               {%- if block.settings.button_label_1 != blank -%}
                 <a
                   {% if block.settings.button_link_1 == blank %}
@@ -160,6 +159,15 @@
                 </a>
               {%- endif -%}
             </div>
+            <style>
+              {%- if block.settings.button_position_absolute -%}
+                #Banner-{{ section.id }} .banner__box.content-container{
+                  position: absolute;
+                  top: {{ block.settings.button_position_top }}%;
+                  left: {{ block.settings.button_position_left }}%;
+                }
+              {%- endif -%}
+            </style>
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -483,6 +491,35 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_position_absolute",
+          "default": false,
+          "label": "Button position absolute",
+          "info": "You can use this setting to position the buttons absolutely within the banner. This is useful for banners with multiple images or complex layouts."
+        },
+        {
+          "type": "range",
+          "id": "button_position_top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button position top",
+          "default": 0,
+          "info": "Set the top position of the buttons when using absolute positioning."
+        },
+        {
+          "type": "range",
+          "id": "button_position_left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button position left",
+          "default": 0,
+          "info": "Set the left position of the buttons when using absolute positioning."
         }
       ]
     }

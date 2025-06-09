@@ -1,0 +1,49 @@
+.banner__icons{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.banner__icons .banner__icon {
+    display: grid;
+    grid-template-areas: 
+        "icon textContainer";
+    column-gap: 10px;
+}
+
+.banner__icons .banner__icon img {
+    max-width: 45px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    grid-area: icon;
+}
+
+.banner__icons .banner__icon .banner__icon-text{
+    grid-area: textContainer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner__icons .banner__icon h3 {
+    text-align: left;
+    font-size: 0.875em;
+    color: #fff;
+    font-weight: bold;
+    margin: 0;
+}
+
+.banner__icons .banner__icon .subtitle {
+    text-align: left;
+    font-size: 0.75em;
+    color: #fff;
+    font-weight: normal;
+}
+
+.banner__icons .banner__icon .subtitle p{
+    margin: 0;
+}

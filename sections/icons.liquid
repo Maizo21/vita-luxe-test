@@ -1,0 +1,123 @@
+{{ 'section-icons.css' | asset_url | stylesheet_tag }}
+<div class="icons__container icons__container--{{ section.id }}">
+    <div class="banner__icons">
+        {%- for block in section.blocks -%}
+            {%- if block != blank -%}
+            <div class="banner__icon">
+                <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.icon_heading }}" />
+                <div class="banner__icon-text">
+                    <h3>{{ block.settings.icon_heading }}</h3>
+                    <div class="subtitle">
+                    {{ block.settings.icon_text }}
+                    </div>
+                </div>
+            </div>
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+</div>
+
+<style>
+
+    .icons__container--{{ section.id }} {
+        {% if section.settings.position_custom %}
+            margin-top: {{ section.settings.margin_top | default: '0' }}%;
+        {% endif %}
+        width: 100%;
+        {% if section.settings.position_custom == false %}
+        background-color: {{ section.settings.background_color | default: '#000' }};
+        {% endif %}
+        color: {{ section.settings.text_color | default: '#fff' }};
+    }
+
+    .icons__container--{{ section.id }} .banner__icons {
+        {% if section.settings.position_custom %}
+        position: relative;
+        background: transparent;
+        {% endif %}
+        max-width: {{section.settings.max_width | default: '1200px'}};
+        margin: 0 auto;
+        padding-bottom: {{section.settings.padding_bottom}}px;
+    }
+</style>
+
+{% schema %}
+  {
+    "name": "Icons",
+    "settings": [
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Max Width",
+            "default": "1200px"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color",
+            "default": "#000"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#fff"
+        },
+        {
+            "type": "checkbox",
+            "id": "position_custom",
+            "label": "Custom Positioning",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "margin_top",
+            "label": "Margin Top",
+            "default": 0,
+            "min": -40,
+            "max": 40,
+            "step": 5,
+            "unit": "%",
+            "info": "Adjust the top margin for the icons section. Use negative values to pull it up."
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding Bottom",
+            "default": 50,
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "unit": "px",
+            "info": "Set the bottom padding for the icons section."
+        }
+    ],
+    "blocks": [
+      {
+        "type": "icons",
+        "name": "Icons",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "icon_heading",
+            "label": "Heading"
+          }, {
+            "type": "richtext",
+            "id": "icon_text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icons",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
