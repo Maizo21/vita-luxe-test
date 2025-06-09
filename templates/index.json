@@ -11,7 +11,10 @@
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "shopify:\/\/collections",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": false,
+            "button_position_absolute": true,
+            "button_position_top": 32,
+            "button_position_left": 32
           }
         }
       },
@@ -32,6 +35,49 @@
         "show_text_below": false
       }
     },
+    "icons_qz8bhn": {
+      "type": "icons",
+      "blocks": {
+        "icons_YGnKzt": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/molecular-structure_1.png",
+            "icon_heading": "High-Quality",
+            "icon_text": "<p>Science-Backed Formulas<\/p>"
+          }
+        },
+        "icons_mE6kgc": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_24.png",
+            "icon_heading": "By healthcare providers",
+            "icon_text": "<p>Experts in cardiovascular health<\/p>"
+          }
+        },
+        "icons_MhghQg": {
+          "type": "icons",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/ingredients_1_1.png",
+            "icon_heading": "Premium Ingredients",
+            "icon_text": "<p>High Quality, Pure and Potent <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icons_YGnKzt",
+        "icons_mE6kgc",
+        "icons_MhghQg"
+      ],
+      "name": "Icons",
+      "settings": {
+        "max_width": "910px",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "position_custom": true,
+        "margin_top": -10,
+        "padding_bottom": 50
+      }
+    },
     "featured_collection_77meGE": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -39,7 +85,7 @@
         "collection": "frontpage",
         "products_to_show": 4,
         "title": "Endless Support for Every Health Journey",
-        "heading_size": "h1",
+        "heading_size": "h0",
         "description": "<p>VitaLuxe supplements are crafted with your future in mind—formulated by experts, rooted in science, and designed to work as hard as you do. Because your health deserves nothing less.<br\/><br\/><\/p>",
         "show_description": false,
         "description_style": "body",
@@ -243,6 +289,7 @@
   },
   "order": [
     "image_banner",
+    "icons_qz8bhn",
     "featured_collection_77meGE",
     "image_with_text_NqGLWh",
     "multirow_VwBt6L",
