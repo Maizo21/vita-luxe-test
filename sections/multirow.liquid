@@ -43,7 +43,7 @@
 -%}
 
 <div class="multirow section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
-  <div class="multirow__inner page-width">
+  <div class="multirow__inner {% if section.settings.full_width %} full_width{% else %} page-width{% endif %}">
     {%- for block in section.blocks -%}
       <div
         class="image-with-text isolate{{ borders_class }}{{ corners_class }}{{ padding_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="image-with-text__text-item grid__item">
-            <div class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.image_height }} content-container{% unless no_content_background and no_content_styles %} gradient color-{{ section.settings.row_color_scheme }}{% else %} background-transparent{% endunless %}">
+            <div class="image-with-text__content {% if block.settings.max_width_text %}{{block.settings.max_width_size}}{% endif %} {{block.settings.orientation}} image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.image_height }} content-container{% unless no_content_background and no_content_styles %} gradient color-{{ section.settings.row_color_scheme }}{% else %} background-transparent{% endunless %}">
               {%- if block.settings.caption -%}
                 <p class="image-with-text__text image-with-text__text--caption caption-with-letter-spacing caption-with-letter-spacing--medium">
                   {{ block.settings.caption | escape }}
@@ -118,6 +118,12 @@
     {
       "type": "header",
       "content": "t:sections.multirow.settings.header.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Full width"
     },
     {
       "type": "select",
@@ -375,6 +381,26 @@
           "label": "t:sections.multirow.blocks.row.settings.heading.label"
         },
         {
+          "type": "select",
+          "id": "orientation",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "left",
+          "label":"Heading orientation"
+        },
+        {
           "type": "richtext",
           "id": "text",
           "default": "t:sections.multirow.blocks.row.settings.text.default",
@@ -391,6 +417,38 @@
           "type": "url",
           "id": "button_link",
           "label": "t:sections.multirow.blocks.row.settings.button_link.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "max_width_text",
+          "default": false,
+          "label": "Max width text",
+          "info": "This setting will apply a max-width to the text content of each row. It will not affect the image width."
+        },
+        {
+          "type": "select",
+          "id": "max_width_size",
+          "options": [
+            {
+              "value": "max-width-text--l",
+              "label": "Max width text - Large"
+            },
+            {
+              "value": "max-width-text--m",
+              "label": "Max width text - Medium"
+            },
+            {
+              "value": "max-width-text--s",
+              "label": "Max width text - Small"
+            },
+            {
+              "value": "",
+              "label": "Normal width text"
+            }
+          ],
+          "default": "",
+          "label": "Max width text",
+          "info": "This setting will apply a max-width to the text content of each row. It will not affect the image width."
         }
       ]
     }

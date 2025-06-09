@@ -3638,3 +3638,76 @@ details-disclosure > details {
   width: 100%;
   margin: 10px auto;
 }
+
+/* I M A G E  W I T H  T E X T - M U L T I R O W*/
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content h2.image-with-text__heading{
+  font-size: 3.75em;
+  font-weight: bold;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.right h2.image-with-text__heading,
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.right .image-with-text__text p {
+  text-align: right;
+  margin-right: 0;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.left h2.image-with-text__heading,
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.left .image-with-text__text p {
+  text-align: left;
+  margin-left: 0;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.center h2.image-with-text__heading,
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.center .image-with-text__text p {
+  text-align: center;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content .image-with-text__text{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.right .image-with-text__text {
+  text-align: -webkit-right;
+  margin-right: 0;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.left .image-with-text__text {
+  text-align: -webkit-left;
+  margin-left: 0;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.center .image-with-text__text {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content .image-with-text__text p{
+  font-size: 1.25em;
+  max-width: 450px;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.right a.button{
+  margin: auto 0 auto auto;
+}
+
+.multirow .full_width .image-with-text__text-item.grid__item .image-with-text__content.left a.button{
+  margin: auto auto auto 0;
+}
+
+
+.max-width-text--l{
+  max-width: 1000px;
+}
+
+.max-width-text--m{
+  max-width: 800px;
+}
+
+.max-width-text--s{
+  max-width: 600px;
+}
+
